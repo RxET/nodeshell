@@ -49,6 +49,33 @@ module.exports = {
             console.log(lines[i]);
         }
 
+    },
+    wc: function(item) {
+        var fs = require('fs');
+        var file = fs.readFileSync(item, 'utf8');
+        var lines = file.split('\n');
+        console.log(lines.length);
+    },
+    sort: function(item) {
+        var fs = require('fs');
+        var file = fs.readFileSync(item, 'utf8');
+        var lines = file.split('\n');
+        console.log(lines.sort());
+    },
+    uniq: function(item) {
+        var fs = require('fs');
+        var file = fs.readFileSync(item, 'utf8');
+        var lines = file.split('\n');
+        var sortedLines = lines.sort();
+        var finalArr = [];
+
+        for (var i=0; i<sortedLines.length; i++) {
+            if (finalArr.indexOf(sortedLines[i]) === -1) {
+                finalArr.push(sortedLines[i]);
+            }
+        }
+
+        console.log(finalArr);
     }
 }
 
